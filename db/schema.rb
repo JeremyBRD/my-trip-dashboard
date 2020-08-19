@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_19_105839) do
+ActiveRecord::Schema.define(version: 2020_08_19_134806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,6 +35,28 @@ ActiveRecord::Schema.define(version: 2020_08_19_105839) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["trip_id"], name: "index_steps_on_trip_id"
+  end
+
+  create_table "transportations", force: :cascade do |t|
+    t.bigint "step_id", null: false
+    t.string "departure_city"
+    t.datetime "departure_date"
+    t.datetime "departure_timestamp"
+    t.string "destination_city"
+    t.datetime "arrival_date"
+    t.datetime "arrival_timestamp"
+    t.string "flight_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "transport_id", null: false
+    t.index ["step_id"], name: "index_transportations_on_step_id"
+    t.index ["transport_id"], name: "index_transportations_on_transport_id"
+  end
+
+  create_table "transports", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "trips", force: :cascade do |t|
@@ -66,5 +88,7 @@ ActiveRecord::Schema.define(version: 2020_08_19_105839) do
 
   add_foreign_key "step_infos", "steps"
   add_foreign_key "steps", "trips"
+  add_foreign_key "transportations", "steps"
+  add_foreign_key "transportations", "transports"
   add_foreign_key "trips", "users"
 end
