@@ -1,0 +1,7 @@
+<%= @trip.name %>
+<%= @trip.starting_date %>
+<%= @trip.end_date %>
+
+<%= link_to "Delete",
+    @trip.destroy,
+    data: { confirm: 'Are you sure?' } %>

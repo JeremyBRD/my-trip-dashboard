@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div class="col-6 title">
+        <h3>My new trip</h3>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-6 content">
+      <%= simple_form_for [@user, @trip] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :starting_date %>
+        <%= f.input :end_date %>
+        <%= f.submit class: 'btn btn-primary'%>
+        <%= f.button :button, "Cancel", type: "reset", class: "btn btn-outline-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>
