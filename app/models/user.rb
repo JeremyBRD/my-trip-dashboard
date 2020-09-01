@@ -9,4 +9,5 @@ class User < ApplicationRecord
   has_many :steps, through: :trips, dependent: :destroy
   has_many :step_infos, through: :steps, dependent: :destroy
   has_many :transportations, through: :steps, dependent: :destroy
+  has_many :transports, through: :steps, dependent: :destroy
 end
