@@ -1,6 +1,9 @@
 <%= @trip.name %>
 <%= @trip.starting_date %>
 <%= @trip.end_date %>
+<% @trip.steps.each do |step| %>
+    <%= step.name %>
+<% end %>
 
 <%= link_to "Delete",
     @trip.destroy,

@@ -21,6 +21,8 @@ class TripsController < ApplicationController
 
     def show
         @trip = Trip.find(params[:id])
+        @step = Step.new
+        @steps = @trip.steps
     end
 
     def destroy

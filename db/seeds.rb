@@ -64,6 +64,12 @@ trip1 = Trip.new(
   )
 trip1.save
 
+step1 = Step.new(
+  trip: trip1,
+  name: 'Coucou',
+)
+step1.save
+
 puts 'Creating another user...'
 
 elise = User.new(
