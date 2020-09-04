@@ -1,0 +1,35 @@
+.call-to-action {
+  color: White;
+  background-color: $main-color;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-family: $main-font;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  width: 240px;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    color: White;
+  }
+}
+
+.submit-btn {
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: $sec-color;
+  border: solid 1px grey;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  text-align: center;
+
+  &:hover{
+    opacity: 1;
+    text-decoration: none;
+    color: White;
+  }
+}
