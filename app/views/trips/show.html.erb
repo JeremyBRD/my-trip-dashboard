@@ -6,5 +6,6 @@
 <% end %>
 
 <%= link_to "Delete",
-    @trip.destroy,
+    trip_path(@trip),
+    method: :delete,
     data: { confirm: 'Are you sure?' } %>
