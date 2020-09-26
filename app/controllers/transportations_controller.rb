@@ -1,19 +1,42 @@
 class TransportationsController < ApplicationController
-    def create
-        @trip = Trip.find(params[:trip_id])
-        @transportation = Transportation.new(transportation_params)
-        @transportation.trip = @trip
-        if @transportation.save
-          redirect_to trip_path(@trip)
-        else
-          render 'trips/show'
-        end
-    end
+  before_action :set_step, only: [:create, :edit, :update, :destroy]
 
-    def destroy
-        @transportation = Transportation.find(params[:id])
-        @trip = @transportation.trip
-        @transportation.destroy
-        redirect_to trip_path(@trip)
+  def new
+  end
+  
+  def create
+    @transportations = Transportation.new(transportations_params)
+    @transportations.step = @step
+    if @transportations.save
+      redirect_to trip_path(@trip)
+    else
+      render :new
     end
+  end
+
+  def edit
+  end
+
+  def update
+    if @transportations.update(transportations_params)
+      redirect_to trip_path(@trip)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @transportations.destroy
+    redirect_to trip_path(@trip)
+  end
+
+  private
+
+  def transportations_params
+    params.require(:transportations).permit(:name, :address, :type)
+  end
+
+  def set_step
+    @step = Step.find(params[:step_id])
+  end
 end
