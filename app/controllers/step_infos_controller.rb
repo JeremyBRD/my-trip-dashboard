@@ -6,15 +6,15 @@ class StepInfosController < ApplicationController
     end
     
     def create
-        # no need to identify trip because we have a unique id for step ?
-        @step_infos = StepInfo.new(step_infos_params)
-        @step_infos.step = @step
-        if @step_infos.save
-            redirect_to trip_path(@trip)
-          else
-            # if it does not work we want to go back to the 'new' form
-            render :new
-        end
+      # no need to identify trip because we have a unique id for step ?
+      @step_infos = StepInfo.new(step_infos_params)
+      @step_infos.step = @step
+      if @step_infos.save
+        redirect_to trip_path(@trip)
+      else
+        # if it does not work we want to go back to the 'new' form
+        render :new
+      end
     end
 
     # shall we open a pop-up in order to edit this ?
@@ -22,16 +22,16 @@ class StepInfosController < ApplicationController
     end
 
     def update
-        if @step_infos.update(step_infos_params)
-            redirect_to trip_path(@trip)
-        else
-            render :edit
-        end
+      if @step_infos.update(step_infos_params)
+        redirect_to trip_path(@trip)
+      else
+        render :edit
+      end
     end
 
     def destroy
-        @step_infos.destroy
-        redirect_to trip_path(@trip)
+      @step_infos.destroy
+      redirect_to trip_path(@trip)
     end
 
     private
@@ -41,6 +41,6 @@ class StepInfosController < ApplicationController
     end
 
     def set_step
-        @step = Step.find(params[:step_id])
+      @step = Step.find(params[:step_id])
     end
 end
