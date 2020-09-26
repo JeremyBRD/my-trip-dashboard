@@ -81,6 +81,47 @@ elise = User.new(
   )
 elise.save
 
+puts 'Creating his trips with their steps...'
 
+trip2 = Trip.new(
+  user: elise,
+  name: "Chouchous in Indonesia",
+  starting_date: DateTime.new(2020,9,5),
+  starting_timestamp: DateTime.new(2020,9,5),
+  end_date: DateTime.new(2020,9,30),
+  end_timestamp: DateTime.new(2020,9,30),
+  )
+trip2.save
 
+trip2_step1 = Step.new(
+  trip: trip2,
+  name: 'Kuta',
+)
+trip2_step1.save
+
+trip2_step2 = Step.new(
+  trip: trip2,
+  name: 'Ubud',
+)
+trip2_step2.save
+
+trip2_step3 = Step.new(
+  trip: trip2,
+  name: 'Gili',
+)
+trip2_step3.save
+
+trip2_step3_infos = StepInfo.new(
+  step: trip2_step3,
+  name: 'Gili Divers',
+  info_type: 'activity'
+)
+trip2_step3_infos.save
+
+trip2_step3_infos2 = StepInfo.new(
+  step: trip2_step3,
+  name: 'Kayak to other islands',
+  info_type: 'activity'
+)
+trip2_step3_infos2.save
 

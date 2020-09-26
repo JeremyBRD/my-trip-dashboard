@@ -16,4 +16,10 @@ class StepsController < ApplicationController
         @step.destroy
         redirect_to trip_path(@trip)
     end
+
+    private
+
+    def step_params
+      params.require(:step).permit(:name, :address)
+    end
 end

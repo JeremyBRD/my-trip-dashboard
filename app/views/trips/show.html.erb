@@ -1,9 +1,16 @@
-<%= @trip.name %>
-<%= @trip.starting_date %>
-<%= @trip.end_date %>
-<% @trip.steps.each do |step| %>
-    <%= step.name %>
-<% end %>
+<h1><%= @trip.name %></h1>
+<h4><%= "from #{@trip.starting_date.strftime('%a %d %b %Y')} to #{@trip.end_date.strftime('%a %d %b %Y')}" %></h4>
+
+<ul>
+    <% @trip.steps.each do |step| %>
+        <li>
+        <%= step.name %>
+        <% step.step_infos.each do |step_info| %>
+            <%= "#{step_info.name} (#{step_info.info_type})" %>
+        <% end %>
+        </li>
+    <% end %>
+</ul>
 
 <%= link_to "Delete",
     trip_path(@trip),
