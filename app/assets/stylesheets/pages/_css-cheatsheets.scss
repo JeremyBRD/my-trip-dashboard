@@ -1,0 +1,23 @@
+.cheatsheets-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  height: 150vh;
+}
+
+.cheatsheets-main-font {
+  font-family: $main-font;
+}
+
+.cheatsheets-sec-font {
+  font-family: $sec-font;
+}
+
+.cheatsheets-main-color {
+  color: $main-color;
+}
+
+.cheatsheets-sec-color {
+  color: $sec-color;
+}
