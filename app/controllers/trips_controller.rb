@@ -13,7 +13,7 @@ class TripsController < ApplicationController
         @trip = current_user.trips.new(trip_params)
         @trip.user_id = current_user.id
         if @trip.save!
-            redirect_to trips_path # modifier vers le trip_show une fois créé
+            redirect_to trips_path
         else
             render :new
         end
